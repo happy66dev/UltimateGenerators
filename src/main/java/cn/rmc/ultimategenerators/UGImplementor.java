@@ -6,7 +6,6 @@ import cn.rmc.ultimategenerators.lists.UGRecipeType;
 import cn.rmc.ultimategenerators.object.abstracts.BContainer;
 import cn.rmc.ultimategenerators.object.abstracts.BGenerator;
 import cn.rmc.ultimategenerators.object.machines.BiofuelRefinery;
-import cn.rmc.ultimategenerators.object.machines.EndlessGenerator;
 import cn.rmc.ultimategenerators.object.machines.OilRefinery;
 import cn.rmc.ultimategenerators.object.tasks.ReinforcedRainbowTicker;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -51,21 +50,37 @@ public class UGImplementor {
                 new SlimefunItem(UGCategories.ELECTRICITY_STORAGE, sis(UGItems.ADVANCED_BATTERY, "ADVANCED_BATTERY"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         Utils.buildRecipe(SlimefunItems.BATTERY, BCIRCUIT, SlimefunItems.BATTERY, COPPI, COPPI, COPPI,
-                                SlimefunItems.BATTERY, BCIRCUIT, SlimefunItems.BATTERY)),
+                                SlimefunItems.BATTERY, BCIRCUIT, SlimefunItems.BATTERY)) {{
+                    ItemStack output = UGItems.ADVANCED_BATTERY.clone();
+                    output.setAmount(2);
+                    setRecipeOutput(output);
+                }},
                 new SlimefunItem(UGCategories.ELECTRICITY_STORAGE, sis(UGItems.ALPHA_BATTERY, "ALPHA_BATTERY"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         Utils.buildRecipe(UGItems.ADVANCED_BATTERY, ACIRCUIT, UGItems.ADVANCED_BATTERY, COPPI,
                                 UGItems.ELECTRICITY_STORAGE_UNIT, COPPI, UGItems.ADVANCED_BATTERY, ACIRCUIT,
-                                UGItems.ADVANCED_BATTERY)),
+                                UGItems.ADVANCED_BATTERY)) {{
+                    ItemStack output = UGItems.ALPHA_BATTERY.clone();
+                    output.setAmount(2);
+                    setRecipeOutput(output);
+                }},
                 new SlimefunItem(UGCategories.ELECTRICITY_STORAGE,sis( UGItems.BETA_BATTERY, "BETA_BATTERY"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         Utils.buildRecipe(UGItems.ALPHA_BATTERY, ACIRCUIT, UGItems.ALPHA_BATTERY, COPPI,
                                 UGItems.ELECTRICITY_STORAGE_UNIT, COPPI, UGItems.ALPHA_BATTERY, ACIRCUIT,
-                                UGItems.ALPHA_BATTERY)),
+                                UGItems.ALPHA_BATTERY)) {{
+                    ItemStack output = UGItems.BETA_BATTERY.clone();
+                    output.setAmount(2);
+                    setRecipeOutput(output);
+                }},
                 new SlimefunItem(UGCategories.ELECTRICITY_STORAGE, sis(UGItems.GAMMA_BATTERY, "GAMMA_BATTERY"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         Utils.buildRecipe(UGItems.BETA_BATTERY, ACIRCUIT, UGItems.BETA_BATTERY, COPPI,
-                                UGItems.ELECTRICITY_STORAGE_UNIT, COPPI, UGItems.BETA_BATTERY, ACIRCUIT, UGItems.BETA_BATTERY)),
+                                UGItems.ELECTRICITY_STORAGE_UNIT, COPPI, UGItems.BETA_BATTERY, ACIRCUIT, UGItems.BETA_BATTERY)) {{
+                    ItemStack output = UGItems.GAMMA_BATTERY.clone();
+                    output.setAmount(2);
+                    setRecipeOutput(output);
+                }},
                 new SlimefunItem(UGCategories.TECH_MISC,sis( UGItems.DIESEL_BUCKET, "DIESEL_BUCKET"),
                         new RecipeType(new NamespacedKey(UltimateGenerators.getImplement(),"DIESEL_REFINERY"),
                                 new CustomItemStack(Material.PISTON, "&c柴油精炼器&r", "&a在柴油精炼器里将石油精炼为柴油")),
@@ -182,7 +197,7 @@ public class UGImplementor {
                                 new ItemStack[] { UGItems.BIOMASS_BUCKET });
                     }
                 }.setCapacity(128).setEnergyConsumption(3).setProcessingSpeed(1),
-                new Capacitor(UGCategories.ELECTRICITY_STORAGE, 16,sis(UGItems.GLASS_ELECTRICITY_TRANSMITTER,
+                new Capacitor(UGCategories.ELECTRICITY_STORAGE, 48,sis(UGItems.GLASS_ELECTRICITY_TRANSMITTER,
                         "GLASS_ELECTRICITY_TRANSMITTER"), RecipeType.ENHANCED_CRAFTING_TABLE,
                         new ItemStack[] { null, ALUI, null, ALUI, UGItems.ELECTRICITY_STORAGE_UNIT, ALUI, null, ALUI, null }){{
                             setRecipeOutput(new CustomItemStack(UGItems.GLASS_ELECTRICITY_TRANSMITTER,
@@ -192,13 +207,13 @@ public class UGImplementor {
                 new Capacitor(UGCategories.ELECTRICITY_STORAGE, 640,sis(UGItems.BASIC_ELECTRICITY_STORAGE,
                         "BASIC_ELECTRICITY_STORAGE"), RecipeType.ENHANCED_CRAFTING_TABLE,
                         new ItemStack[] { SlimefunItems.BATTERY, SlimefunItems.REDSTONE_ALLOY, SlimefunItems.BATTERY,
-                                SlimefunItems.REDSTONE_ALLOY, ALUI, SlimefunItems.REDSTONE_ALLOY, SlimefunItems.BATTERY,
+                                SlimefunItems.STEEL_INGOT, ALUI, SlimefunItems.STEEL_INGOT, SlimefunItems.BATTERY,
                                 SlimefunItems.REDSTONE_ALLOY, SlimefunItems.BATTERY }),
                 new Capacitor(UGCategories.ELECTRICITY_STORAGE, 2560,sis(UGItems.ADVANCED_ELECTRICITY_STORAGE,
                         "ADVANCED_ELECTRICITY_STORAGE"), RecipeType.ENHANCED_CRAFTING_TABLE,
-                        new ItemStack[] { UGItems.ADVANCED_BATTERY, SlimefunItems.REDSTONE_ALLOY, SlimefunItems.REDSTONE_ALLOY,
+                        new ItemStack[] { UGItems.ADVANCED_BATTERY, SlimefunItems.REDSTONE_ALLOY, SlimefunItems.STEEL_INGOT,
                                 SlimefunItems.REDSTONE_ALLOY, UGItems.BASIC_ELECTRICITY_STORAGE, SlimefunItems.REDSTONE_ALLOY,
-                                SlimefunItems.REDSTONE_ALLOY, SlimefunItems.REDSTONE_ALLOY, UGItems.ADVANCED_BATTERY }),
+                                SlimefunItems.STEEL_INGOT, SlimefunItems.REDSTONE_ALLOY, UGItems.ADVANCED_BATTERY }),
                 new Capacitor(UGCategories.ELECTRICITY_STORAGE, 5120,sis(UGItems.ALPHA_ELECTRICITY_STORAGE,
                         "ALPHA_ELECTRICITY_STORAGE"), RecipeType.ENHANCED_CRAFTING_TABLE,
                         new ItemStack[] { UGItems.ALPHA_BATTERY, SlimefunItems.REDSTONE_ALLOY, SlimefunItems.REDSTONE_ALLOY,
@@ -222,12 +237,6 @@ public class UGImplementor {
                                 SlimefunItems.REDSTONE_ALLOY, UGItems.GAMMA_ELECTRICITY_STORAGE,
                                 UGItems.GAMMA_ELECTRICITY_STORAGE, UGItems.GAMMA_ELECTRICITY_STORAGE,
                                 UGItems.GAMMA_ELECTRICITY_STORAGE }),
-                new Capacitor(UGCategories.ELECTRICITY_STORAGE,20971520 ,sis(UGItems.KAPA_ELECTRICITY_STORAGE,
-                        "KAPA_ELECTRICITY_STORAGE"), UGRecipeType.NULL, new ItemStack[] {}){{setHidden(false);
-                Slimefun.getItemCfg().setValue("KAPA_ELECTRICITY_STORAGE.hide-in-guide",false);}},
-                new Capacitor(UGCategories.ELECTRICITY_STORAGE,167772160, sis(UGItems.PHI_ELECTRICITY_STORAGE, "PHI_ELECTRICITY_STORAGE"),
-                        UGRecipeType.NULL, new ItemStack[] {}){{setHidden(false);
-                    Slimefun.getItemCfg().setValue("PHI_ELECTRICITY_STORAGE.hide-in-guide",false);}},
                 new BContainer(UGCategories.MACHINES, sis(UGItems.HEAVY_WATER_REFINING_MACHINE, "HEAVY_WATER_REFINING_MACHINE"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         new ItemStack[] { HGLASS, null, HGLASS, COIL, SlimefunItems.ELECTRIC_DUST_WASHER_2, COIL, BCIRCUIT,
@@ -253,9 +262,6 @@ public class UGImplementor {
 
     public void implementSingleGenerators() {
         register(
-                new EndlessGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.ENDLESS_GENERATOR, "ENDLESS_GENERATOR"),
-                        UGRecipeType.NULL, Utils.buildRecipe()){{setHidden(false);
-                    Slimefun.getItemCfg().setValue("ENDLESS_GENERATOR.hide-in-guide",false);}},
                 new BGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.NETHER_STAR_GENERATOR, "NETHER_STAR_GENERATOR"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         Utils.buildRecipe(SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_PLATE,
@@ -269,9 +275,9 @@ public class UGImplementor {
 
                     @Override
                     protected void registerDefaultFuelTypes() {
-                        registerFuel(new MachineFuel(120, mat(Material.NETHER_STAR)));
+                        registerFuel(new MachineFuel(480, mat(Material.NETHER_STAR)));
                     }
-                }.setCapacity(1024).setEnergyProduction(64),
+                }.setCapacity(1024).setEnergyProduction(256),
                 new BGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.DIESEL_GENERATOR, "DIESEL_GENERATOR"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         Utils.buildRecipe(null, SlimefunItems.DURALUMIN_INGOT, null, SlimefunItems.DURALUMIN_INGOT,
@@ -300,9 +306,9 @@ public class UGImplementor {
 
                     @Override
                     protected void registerDefaultFuelTypes() {
-                        registerFuel(new MachineFuel(120, UGItems.BIOFUEL_BUCKET));
+                        registerFuel(new MachineFuel(240, UGItems.BIOFUEL_BUCKET));
                     }
-                }.setCapacity(256).setEnergyProduction(18),
+                }.setCapacity(256).setEnergyProduction(9),
                 new BGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.DRAGON_BREATH_GENERATOR, "DRAGON_BREATH_GENERATOR"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         Utils.buildRecipe(COIL, SlimefunItems.HARDENED_GLASS, COIL, SlimefunItems.PLASTIC_SHEET,
@@ -333,119 +339,14 @@ public class UGImplementor {
                         registerFuel(new MachineFuel(27, SlimefunItems.SMALL_URANIUM));
                         registerFuel(new MachineFuel(108, SlimefunItems.URANIUM));
                     }
-                }.setCapacity(256).setEnergyProduction(8),
-                new BGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.COAL_GENERATOR, "ENLARGED_COAL_GENERATOR"),
-                        RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{null, UGItems.SOLID_STORAGE_EXPANSION, null, ALUI,
-                        SlimefunItems.COAL_GENERATOR, ALUI, null, UGItems.SOLID_STORAGE_EXPANSION, null}) {
-                    @Override
-                    public ItemStack getProgressBar() {
-                        return new ItemStack(Material.FLINT_AND_STEEL);
-                    }
-
-                    @Override
-                    protected void registerDefaultFuelTypes() {
-                        registerFuel(new MachineFuel(8, mat(Material.COAL)));
-                        registerFuel(new MachineFuel(8, mat(Material.CHARCOAL)));
-
-//                        registerFuel(new MachineFuel(8, new UniversalMaterial(Material.COAL, 1).toItemStack(1)));
-                        registerFuel(new MachineFuel(80, new ItemStack(Material.COAL_BLOCK)));
-                        registerFuel(new MachineFuel(12, new ItemStack(Material.BLAZE_ROD)));
-
-                        // Logs
-                        registerFuel(new MachineFuel(1, mat(Material.ACACIA_LOG)));
-                        registerFuel(new MachineFuel(1, mat(Material.BIRCH_LOG)));
-                        registerFuel(new MachineFuel(1, mat(Material.DARK_OAK_LOG)));
-                        registerFuel(new MachineFuel(1, mat(Material.JUNGLE_LOG)));
-                        registerFuel(new MachineFuel(1, mat(Material.OAK_LOG)));
-                        registerFuel(new MachineFuel(1, mat(Material.SPRUCE_LOG)));
-
-                        // Wooden Planks
-                        registerFuel(new MachineFuel(1, mat(Material.ACACIA_WOOD)));
-                        registerFuel(new MachineFuel(1, mat(Material.BIRCH_WOOD)));
-                        registerFuel(new MachineFuel(1, mat(Material.DARK_OAK_WOOD)));
-                        registerFuel(new MachineFuel(1, mat(Material.JUNGLE_WOOD)));
-                        registerFuel(new MachineFuel(1, mat(Material.OAK_WOOD)));
-                        registerFuel(new MachineFuel(1, mat(Material.SPRUCE_WOOD)));
-                    }
-                }.setCapacity(256).setEnergyProduction(8),
-                new BGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.BIO_REACTOR, "ENLARGED_BIO_REACTOR"),
-                        RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{null, UGItems.SOLID_STORAGE_EXPANSION, null, ALUI,
-                        SlimefunItems.BIO_REACTOR, ALUI, null, UGItems.SOLID_STORAGE_EXPANSION, null}) {
-                    @Override
-                    public ItemStack getProgressBar() {
-                        return new ItemStack(Material.GOLDEN_HOE);
-                    }
-
-                    @Override
-                    protected void registerDefaultFuelTypes() {
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.ROTTEN_FLESH)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.SPIDER_EYE)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.BONE)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.APPLE)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.MELON)));
-                        registerFuel(new MachineFuel(27, new ItemStack(Material.MELON)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.PUMPKIN)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.PUMPKIN_SEEDS)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.MELON_SEEDS)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.WHEAT)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.WHEAT_SEEDS)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.CARROT)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.POTATO)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.SUGAR_CANE)));
-                        registerFuel(new MachineFuel(3, new ItemStack(Material.NETHER_SPROUTS)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.CORNFLOWER)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.SUNFLOWER)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.RED_MUSHROOM)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.BROWN_MUSHROOM)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.VINE)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.CACTUS)));
-                        registerFuel(new MachineFuel(2, new ItemStack(Material.SEAGRASS)));
-
-                        // Leaves
-                        registerFuel(new MachineFuel(1, mat(Material.ACACIA_LEAVES)));
-                        registerFuel(new MachineFuel(1, mat(Material.BIRCH_LEAVES)));
-                        registerFuel(new MachineFuel(1, mat(Material.DARK_OAK_LEAVES)));
-                        registerFuel(new MachineFuel(1, mat(Material.JUNGLE_LEAVES)));
-                        registerFuel(new MachineFuel(1, mat(Material.OAK_LEAVES)));
-                        registerFuel(new MachineFuel(1, mat(Material.SPRUCE_LEAVES)));
-
-                        // Saplings
-                        registerFuel(new MachineFuel(1, mat(Material.ACACIA_SAPLING)));
-                        registerFuel(new MachineFuel(1, mat(Material.BIRCH_SAPLING)));
-                        registerFuel(new MachineFuel(1, mat(Material.DARK_OAK_SAPLING)));
-                        registerFuel(new MachineFuel(1, mat(Material.JUNGLE_SAPLING)));
-                        registerFuel(new MachineFuel(1, mat(Material.OAK_SAPLING)));
-                        registerFuel(new MachineFuel(1, mat(Material.SPRUCE_SAPLING)));
-                    }
-                }.setCapacity(512).setEnergyProduction(10),
-                new BGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.LAVA_GENERATOR, "ENLARGED_LAVA_GENERATOR"),
-                        RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] { null, UGItems.LIQUID_STORAGE_EXPANSION, null,
-                        ALUI, SlimefunItems.LAVA_GENERATOR, ALUI, null, UGItems.LIQUID_STORAGE_EXPANSION, null }){
-
-                    @Override
-                    public ItemStack getProgressBar() {
-                        return new ItemStack(Material.FLINT_AND_STEEL);
-                    }
-
-                    @Override
-                    protected void registerDefaultFuelTypes() {
-                        registerFuel(new MachineFuel(30, SlimefunItems.OIL_BUCKET));
-                        registerFuel(new MachineFuel(90, SlimefunItems.FUEL_BUCKET));
-                    }
-                }.setCapacity(256).setEnergyProduction(12),
-//                new MagnesiumGenerator(UGCategories.SINGLE_GENERATOR, sis(UGItems.MAGNESIUM_GENERATOR, "MAGNESIUM_GENERATOR"),
-//                        RecipeType.ENHANCED_CRAFTING_TABLE,
-//                        Utils.buildRecipe(null, SlimefunItems.ELECTRIC_MOTOR, null, SlimefunItems.COMPRESSED_CARBON,
-//                                new ItemStack(Material.WATER_BUCKET), SlimefunItems.COMPRESSED_CARBON,
-//                                SlimefunItems.DURALUMIN_INGOT, SlimefunItems.DURALUMIN_INGOT, SlimefunItems.DURALUMIN_INGOT))
-//                        .setEnergyProduction(18).setCapacity(128),
-                new SolarGenerator(UGCategories.SINGLE_GENERATOR, 1024,512,sis(UGItems.QUANTUM_SOLAR_GENERATOR, "QUANTUM_SOLAR_GENERATOR"),
+                }.setCapacity(256).setEnergyProduction(32),
+                new SolarGenerator(UGCategories.SINGLE_GENERATOR, 832,104,sis(UGItems.QUANTUM_SOLAR_GENERATOR, "QUANTUM_SOLAR_GENERATOR"),
                         RecipeType.ENHANCED_CRAFTING_TABLE,
                         new ItemStack[] { SlimefunItems.SOLAR_GENERATOR_4, SlimefunItems.SOLAR_GENERATOR_4,
                                 SlimefunItems.SOLAR_GENERATOR_4, SlimefunItems.SOLAR_GENERATOR_4,
                                 SlimefunItems.ADVANCED_CIRCUIT_BOARD, SlimefunItems.SOLAR_GENERATOR_4,
                                 SlimefunItems.SOLAR_GENERATOR_4, SlimefunItems.SOLAR_GENERATOR_4,
-                                SlimefunItems.SOLAR_GENERATOR_4 },65536)
+                                SlimefunItems.SOLAR_GENERATOR_4 },2048)
         );
 
 

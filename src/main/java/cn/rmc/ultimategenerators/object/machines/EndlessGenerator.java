@@ -6,7 +6,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetProvider;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.ASlimefunDataContainer;
 import org.bukkit.Location;
 import org.bukkit.inventory.ItemStack;
 
@@ -16,7 +16,7 @@ public class EndlessGenerator extends SlimefunItem implements EnergyNetProvider 
     }
 
     @Override
-    public int getGeneratedOutput(Location location, Config config) {
+    public int getGeneratedOutput(Location location, ASlimefunDataContainer data) {
         return location.getBlock().getBlockPower()*256;
     }
 

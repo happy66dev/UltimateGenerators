@@ -62,6 +62,8 @@ public final class UltimateGenerators extends JavaPlugin implements SlimefunAddo
             implementor.implementSingleGenerators();
 //            implementor.implementModularGenerators();
 
+            new ResearchSetup().setup();
+
             new UGListenersRegister(this).registerAll();
         } catch (Exception ex) {
             ex.printStackTrace();

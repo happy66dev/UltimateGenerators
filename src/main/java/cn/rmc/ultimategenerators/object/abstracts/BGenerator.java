@@ -23,7 +23,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.ASlimefunDataContainer;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel;
@@ -108,7 +108,11 @@ public abstract class BGenerator extends AbstractEnergyProvider implements Machi
         return processor;
     }
 
-    
+    @Override
+    public Class<FuelOperation> getMachineOperationClass() {
+        return FuelOperation.class;
+    }
+
     public BlockBreakHandler onBlockBreak() {
         return new SimpleBlockBreakHandler() {
 
@@ -173,7 +177,7 @@ public abstract class BGenerator extends AbstractEnergyProvider implements Machi
         return new int[]{38, 39, 40, 41, 42};
     }
     @Override
-    public int getGeneratedOutput(Location l, Config data) {
+    public int getGeneratedOutput(Location l, ASlimefunDataContainer data) {
         BlockMenu inv = BlockStorage.getInventory(l);
         FuelOperation operation = processor.getOperation(l);
 
@@ -182,7 +186,7 @@ public abstract class BGenerator extends AbstractEnergyProvider implements Machi
                 processor.updateProgressBar(inv, 22, operation);
 
                 if (isChargeable()) {
-                    int charge = getCharge(l, data);
+                    long charge = getChargeLong(l);
 
                     if (getCapacity() - charge >= getEnergyProduction()) {
                         operation.addProgress(1);

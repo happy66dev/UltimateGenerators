@@ -7,6 +7,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.*;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineProcessHolder;
+import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.machines.MachineProcessor;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
@@ -20,7 +21,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import io.github.thebusybiscuit.slimefun4.utils.itemstack.ItemStackWrapper;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
@@ -47,7 +48,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class BContainer extends SlimefunItem implements InventoryBlock, EnergyNetComponent, MachineProcessHolder<CraftingOperation> {
+public abstract class BContainer extends SlimefunItem implements InventoryBlock, EnergyNetComponent, MachineProcessHolder<CraftingOperation>, RecipeDisplayItem {
 
     private static final int[] BORDER = {
                 0,
@@ -80,8 +81,6 @@ public abstract class BContainer extends SlimefunItem implements InventoryBlock,
         createPreset(this, getInventoryTitle(), this::constructMenu);
 
         addItemHandler(onBlockBreak());
-
-        registerDefaultRecipes();
     }
 
     protected BlockBreakHandler onBlockBreak() {
@@ -111,6 +110,11 @@ public abstract class BContainer extends SlimefunItem implements InventoryBlock,
     @Override
     public MachineProcessor<CraftingOperation> getMachineProcessor() {
         return processor;
+    }
+
+    @Override
+    public Class<CraftingOperation> getMachineOperationClass() {
+        return CraftingOperation.class;
     }
 
     protected void constructMenu(BlockMenuPreset preset) {
@@ -356,7 +360,7 @@ public abstract class BContainer extends SlimefunItem implements InventoryBlock,
         addItemHandler(new BlockTicker() {
 
             @Override
-            public void tick(Block b, SlimefunItem sf, Config data) {
+            public void tick(Block b, SlimefunItem sf, SlimefunBlockData data) {
                 BContainer.this.tick(b);
             }
 

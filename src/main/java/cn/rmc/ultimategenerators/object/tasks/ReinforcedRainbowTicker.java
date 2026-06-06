@@ -1,7 +1,7 @@
 package cn.rmc.ultimategenerators.object.tasks;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import com.xzavier0722.mc.plugin.slimefun4.storage.controller.SlimefunBlockData;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import org.apache.commons.lang.math.RandomUtils;
 import org.bukkit.Material;
@@ -41,7 +41,7 @@ public class ReinforcedRainbowTicker {
         }
 
         @Override
-        public void tick(Block block, SlimefunItem slimefunItem, Config config) {
+        public void tick(Block block, SlimefunItem slimefunItem, SlimefunBlockData data) {
             block.setType(meta);
         }
 

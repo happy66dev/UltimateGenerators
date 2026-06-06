@@ -18,8 +18,6 @@ import org.bukkit.inventory.meta.PotionMeta;
 @SuppressWarnings("CallToPrintStackTrace")
 public class UGItems {
 
-        public static ItemStack ENDLESS_GENERATOR;
-
         public static ItemStack NETHER_STAR_GENERATOR;
 
         public static ItemStack DIESEL_REFINERY;
@@ -37,15 +35,12 @@ public class UGItems {
         public static ItemStack REACTION_GENERATOR;
 
         public static ItemStack SOLID_STORAGE_EXPANSION, LIQUID_STORAGE_EXPANSION;
-        public static ItemStack COAL_GENERATOR, LAVA_GENERATOR, COMBUSTION_REACTOR;
-        public static ItemStack BIO_REACTOR = new CustomItemStack(Material.LIME_TERRACOTTA,
-                        "&2生化反应器 &7(扩容版)&r", "", "&6发电机组", "&8\u21E8 &e\u26A1 &7128 J 缓存", "&8\u21E8 &e\u26A1 &78 J/s");
+        public static ItemStack COMBUSTION_REACTOR;
 
         public static ItemStack ELECTRICITY_STORAGE_UNIT;
         public static ItemStack ADVANCED_BATTERY, ALPHA_BATTERY, BETA_BATTERY, GAMMA_BATTERY;
         public static ItemStack BASIC_ELECTRICITY_STORAGE, ADVANCED_ELECTRICITY_STORAGE, ALPHA_ELECTRICITY_STORAGE,
-                        BETA_ELECTRICITY_STORAGE, GAMMA_ELECTRICITY_STORAGE, LAMBDA_ELECTRICITY_STORAGE,
-                        KAPA_ELECTRICITY_STORAGE, PHI_ELECTRICITY_STORAGE;
+                        BETA_ELECTRICITY_STORAGE, GAMMA_ELECTRICITY_STORAGE, LAMBDA_ELECTRICITY_STORAGE;
 
 //        public static ItemStack MAGNESIUM_SALT, MAGNESIUM_GENERATOR;
 
@@ -69,10 +64,6 @@ public class UGItems {
 
         static {
                 try {
-                        ENDLESS_GENERATOR = new CustomItemStack(SlimefunUtils.getCustomHead(
-                                        "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2Y5ZjM1NmY1ZmU3ZDFiYzkyY2RkZmFlYmEzZWU3NzNhYzlkZjFjYzRkMWMyZjhmZTVmNDcwMTMwMzJjNTUxZCJ9fX0="),
-                                        "&6无尽发电机&r", "", "&r当接收到红石信号时工作", "", "&5创造发电机", "&8⇨ &e⚡ &7发电效率由接收到的红石信号强度决定");
-
                         NETHER_STAR_GENERATOR = new CustomItemStack(Material.GRAY_STAINED_GLASS,
                                         "&d下届之星发电机&r", "", "&4终极发电机", "&8⇨ &e⚡ &71024 J 缓存", "&8⇨ &e⚡ &7128 J/s");
 
@@ -129,14 +120,6 @@ public class UGItems {
                         LIQUID_STORAGE_EXPANSION = new CustomItemStack(SlimefunUtils.getCustomHead(
                                         "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTZiY2QxODBiMWM4ZmM0Y2EzOWNmNDY3YzM0NWFlODNjYzE2YjYzY2IyNTU3MDM0NjAxMDNhM2VlYmE0NTcifX19"),
                                         "&f流体储存拓展&r");
-                        COAL_GENERATOR = new CustomItemStack(SlimefunUtils.getCustomHead(
-                                        "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="),
-                                        "&c煤炭发电机 &7(扩容版)&r", "", "&6发电机组", "&8\u21E8 &e\u26A1 &764 J 缓存",
-                                        "&8\u21E8 &e\u26A1 &716 J/s");
-                        LAVA_GENERATOR = new CustomItemStack(SlimefunUtils.getCustomHead(
-                                        "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="),
-                                        "&4岩浆发电机 &7(扩容版)&r", "", "&6发电机组", "&8\u21E8 &e\u26A1 &7512 J 缓存",
-                                        "&8\u21E8 &e\u26A1 &720 J/s");
                         COMBUSTION_REACTOR = new CustomItemStack(SlimefunUtils.getCustomHead(
                                         "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM0M2NlNThkYTU0Yzc5OTI0YTJjOTMzMWNmYzQxN2ZlOGNjYmJlYTliZTQ1YTdhYzg1ODYwYTZjNzMwIn19fQ=="),
                                         "&c燃烧反应器 &7(扩容版)&r", "", "&6高级发电机", "&8\u21E8 &e\u26A1 &7256 J 缓存",
@@ -172,18 +155,6 @@ public class UGItems {
                                         "&d&lLAMBDA&d-λ 电力存储机&r", "", "&f其实没必要搞这么大的电容了...吧......", "", "&4终极电力存储机",
                                         "&8\u21E8 &e\u26A1 &72621440 J 容量", "",
                                         Utils.db64s("Jjgmb+S9oOS7peS4uui/meWwseaYr+acgOWkp+WuuemHj+eahOeUteWuueS6huWQlz8="));
-
-                        // Hidden Items (Encoded to prevent freely editing)
-                        KAPA_ELECTRICITY_STORAGE = new CustomItemStack(Material.BLACK_STAINED_GLASS,
-                                        Utils.db64s("JjAmbEtBUEEmMC3OuiAmMOeUteWKm+WtmOWCqOacuiZy"), "",
-                                        Utils.db64s("JmPlvakmZeibiyZh54mpJmLlk4Emcg=="), "", "&4终极电力存储机",
-                                        Utils.db64s("Jjjih6ggJmXimqEgJjcyMDk3MTUyMCBKIOWuuemHjw=="), "",
-                                        Utils.db64s("Jjgmb0ZyZWV6ZV9Eb2xwaGluIOW5tuS4jeaJk+eul+atouatpeS6juatpC4uLg=="));
-                        PHI_ELECTRICITY_STORAGE = new CustomItemStack(Material.WHITE_STAINED_GLASS, Utils
-                                        .db64s("JmYmbFAmNyZsSCZmJmxJJjctJmbPhiAmN+eUtSZm5YqbJjflrZgmZuWCqCY35py6JnI="),
-                                        "", Utils.db64s("JmPlvakmZeibiyZh54mpJmLlk4Emcg=="), "", "&4终极电力存储机",
-                                        Utils.db64s("Jjjih6ggJmXimqEgJjcxNjc3NzIxNjAgSiDlrrnph48="), "",
-                                        Utils.db64s("Jmbov5novrnlu7rorq7mg7PopoHlvZPmnI3pnLjnmoTlhYjmiorov5nlgqjnlLXmnLrlhYXmu6HnlLU="));
 
 //                        MAGNESIUM_SALT = new CustomItemStack(Material.SUGAR, "&f镁盐&r");
 //                        MAGNESIUM_GENERATOR = new CustomItemStack(Material.LIGHT_GRAY_TERRACOTTA,
