@@ -10,3 +10,7 @@
 
 ## 下载
 详见releases
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=happy66dev/UltimateGenerators&type=Date)](https://star-history.com/#happy66dev/UltimateGenerators&Date)
